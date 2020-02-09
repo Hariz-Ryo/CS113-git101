@@ -1,0 +1,35 @@
+week7
+
+Pointers and Addresses
+& หาaddress
+* เข้าถึงข้อมูลใน Address
+
+ฟังก์ชัน scanf() รับข้อมูลเข้า
+ 
+ a[i] a บอก address ที่เก็บข้อมูลตัวแรกในarray
+
+ malloc() และ free() จองและคืนหน่วยความจำ
+ Example
+int *data;
+data = (int *)malloc(1000 * sizeof(int));
+
+free(data);
+
+Segmentation fault เกิดจากการเข้าถึงหน่วยความจำที่ไม่ได้จองไว้
+
+ตัวอย่าง1
+int* a, b;
+b = 25;
+a = &b;
+*a = 1;
+printf("%d", *a);  ouptut 1
+printf("%d", b); output 1
+
+ตัวอย่าง2
+int* a, b, c;
+b = 10;
+c = -20;
+a = &b; 
+printf("%d", *a); output 10
+a = &c; 
+printf("%d", *a); ouptut -20
