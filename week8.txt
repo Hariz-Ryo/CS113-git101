@@ -1,0 +1,38 @@
+week8
+
+Linked List คล้ายarray แต่โครงสร้างและการจัดเก็บต่างกัน
+
+Structure
+Example
+struct house {
+char code[5];
+char home[10];
+int number;
+};
+
+struct house hos; hos = ตัวแปรตามโครงสร้างของ struct house
+struct student hos2 = {"12345", "bann", 5}; ประกาศพร้อมกำหนดค่าเริ่มต้น
+
+pointer to structure
+
+struct house hos, *p_hos;
+p_hos = &hos;
+printf("%s\n", (*p_hos).home);
+(*p_hos).number = 21;
+
+typedef unsigned long int ulint; สร้างประเภทข้อมูลใหม่ชื่อ ulint จาก unsigned long int
+Example
+typedef struct {
+char id[12];
+char name[40];
+int age;
+} Student; ประเภทข้อมูลstruckชื่อ student 
+
+Self-referential structure สร้างเพื่อจัดการlinked list
+struct node {
+int data;
+struct node *next;
+};
+
+Doubly Linked List
+เชื่อมไปเชื่อมกลับ
