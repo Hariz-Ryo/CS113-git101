@@ -1,0 +1,66 @@
+//6210450482 Harit-Yubon
+#include<stdio.h>
+#include<stdlib.h> 
+
+typedef struct Node 
+{ 
+    int data; 
+    struct Node* next; 
+} linkl;  
+
+linkl *makelist(int nextdata) 
+{ 
+    linkl* number = (linkl*) malloc(sizeof(linkl)); 
+    number->data  = nextdata; 
+    number->next =  NULL; 
+    return number; 
+} 
+
+void sortnum(linkl** alterhead, linkl* number) 
+{ 
+    linkl* here; 
+    if (*alterhead == NULL || (*alterhead)->data >= number->data) 
+    { 
+        number->next = *alterhead; 
+        *alterhead = number; 
+    } 
+    else
+    { 
+        here = *alterhead; 
+        while (here->next != NULL && here->next->data < number->data) 
+        { 
+            here = here->next; 
+        } 
+        number->next = here->next; 
+        here->next = number; 
+    } 
+} 
+
+void print(linkl *head) 
+{ 
+    linkl *temp = head; 
+    while(temp != NULL) 
+    { 
+        printf("%d\n", temp->data); 
+        temp = temp->next; 
+    } 
+} 
+  
+int main() 
+{ 
+    int n;
+    linkl* head = NULL; 
+    while(1)
+    {
+        scanf("%d", &n);
+        if(n == -1)
+           break;
+        else
+       {
+           linkl *number = makelist(n); 
+           sortnum(&head, number); 
+       }
+    }
+    print(head); 
+    return 0; 
+} 
